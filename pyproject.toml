@@ -1,0 +1,28 @@
+[project]
+name = "orb-lang"
+version = "0.9.1"
+description = "A vendor-neutral language and simulator seam toolkit for physical-world models"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+dependencies = []
+
+[project.scripts]
+orb = "orb.cli:main"
+
+[project.optional-dependencies]
+glb = ["numpy>=1.26", "Pillow>=10"]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-xdist>=3", "numpy>=1.26", "Pillow>=10", "pygltflib>=1.16"]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["orb"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

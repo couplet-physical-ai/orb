@@ -1,0 +1,6 @@
+Copyright 2026 Exowatt, Inc.
+
+This distribution contains original OrbLang compiler and world-graph code, generic simulator
+seams, and synthetic examples. It does not include third-party robot meshes, site scans, branded
+assets, proprietary SDKs, or hosted service integrations. Dependencies are retrieved from their
+upstream package registries and remain subject to their respective licenses.

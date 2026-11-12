@@ -1,0 +1,26 @@
+# A synthetic warehouse aisle with two rack bays and a small material tote.
+part "tote" {
+  mass = 3 kg
+  visual "box" { size = [0.5, 0.35, 0.3] m  color = "blue" }
+  collision "box" { size = [0.5, 0.35, 0.3] m }
+}
+
+site "warehouse" {
+  floor = [16, 10] m
+  color = "concrete"
+  zone "aisle" { at = [0, 0, 0] m  size = [3, 8] m  color = "gray" }
+  fixture "rack-west" {
+    kind = "rack"
+    at = [-2, 0, 0] m
+    visual "box" { size = [0.5, 8, 3] m  at = [0, 0, 1.5] m  color = "orange" }
+    collision "box" { size = [0.5, 8, 3] m  at = [0, 0, 1.5] m }
+  }
+  fixture "rack-east" {
+    kind = "rack"
+    at = [2, 0, 0] m
+    visual "box" { size = [0.5, 8, 3] m  at = [0, 0, 1.5] m  color = "orange" }
+    collision "box" { size = [0.5, 8, 3] m  at = [0, 0, 1.5] m }
+  }
+}
+
+item "tote-01" { of = part.tote  location = site.warehouse.zone.aisle  at = [0, 1, 0.15] m }

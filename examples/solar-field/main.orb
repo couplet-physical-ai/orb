@@ -1,0 +1,23 @@
+# A synthetic solar field. Geometry is schematic and does not describe a real site.
+part "panel" {
+  mass = 18 kg
+  visual "box" { size = [2, 1, 0.08] m  color = "blue" }
+  collision "box" { size = [2, 1, 0.08] m }
+}
+part "support" {
+  mass = 8 kg
+  visual "box" { size = [0.12, 0.12, 1.4] m  at = [0, 0, 0.7] m  color = "gray" }
+  collision "box" { size = [0.12, 0.12, 1.4] m  at = [0, 0, 0.7] m }
+}
+
+site "field" {
+  floor = [24, 18] m
+  color = "green"
+  zone "row_a" { at = [0, -2, 0] m  size = [18, 3] m  color = "green" }
+  zone "row_b" { at = [0, 2, 0] m  size = [18, 3] m  color = "green" }
+}
+
+item "panel-a" { of = part.panel  location = site.field.zone.row_a  at = [0, 0, 1.5] m  rpy = [0, 15, 0] deg }
+item "support-a" { of = part.support  location = site.field.zone.row_a  at = [0, 0, 0] m }
+item "panel-b" { of = part.panel  location = site.field.zone.row_b  at = [0, 0, 1.5] m  rpy = [0, 15, 0] deg }
+item "support-b" { of = part.support  location = site.field.zone.row_b  at = [0, 0, 0] m }

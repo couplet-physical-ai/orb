@@ -1,0 +1,1535 @@
+{
+ "orb": "0.1",
+ "units": "SI (m, kg, s, rad); quat = [w, x, y, z]",
+ "root": "examples/motion-demo",
+ "parts": {
+  "crate": {
+   "inertial": {
+    "mass": 5.0,
+    "com": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "inertia": [
+     0.075,
+     0.104166666667,
+     0.104166666667,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "geoms": [
+    {
+     "role": "collision",
+     "shape": "box",
+     "pos": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "size": [
+      0.4,
+      0.3,
+      0.3
+     ],
+     "color": [
+      0.55,
+      0.4,
+      0.25,
+      1
+     ]
+    }
+   ],
+   "native": {
+    "minecraft": {
+     "block": "minecraft:barrel"
+    }
+   }
+  },
+  "tag": {
+   "inertial": {
+    "mass": 0.05,
+    "com": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "inertia": [
+     4.33333333333e-05,
+     4.33333333333e-05,
+     8.33333333333e-05,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "geoms": [
+    {
+     "role": "collision",
+     "shape": "box",
+     "pos": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "size": [
+      0.1,
+      0.1,
+      0.02
+     ],
+     "color": [
+      1.0,
+      0.45,
+      0.0,
+      1
+     ]
+    }
+   ]
+  },
+  "horse": {
+   "only": [
+    "minecraft"
+   ],
+   "inertial": {
+    "mass": 500.0,
+    "com": [
+     0.0,
+     0.0,
+     0.8
+    ],
+    "inertia": [
+     121.666666667,
+     273.333333333,
+     181.666666667,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "geoms": [
+    {
+     "role": "collision",
+     "shape": "box",
+     "pos": [
+      0.0,
+      0.0,
+      0.8
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "size": [
+      2.0,
+      0.6,
+      1.6
+     ],
+     "color": [
+      0.55,
+      0.4,
+      0.25,
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "assemblies": {
+  "truck": {
+   "root": "chassis",
+   "links": [
+    {
+     "name": "chassis",
+     "parent": null,
+     "part": null,
+     "pos": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "inertial": {
+      "mass": 8000.0,
+      "com": [
+       0.0,
+       0.0,
+       0.6
+      ],
+      "inertia": [
+       4833.33333333,
+       43333.3333333,
+       46833.3333333,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "joint": {
+      "name": "chassis_joint",
+      "type": "free"
+     },
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.0,
+        0.0,
+        0.6
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        8.0,
+        2.5,
+        0.4
+       ],
+       "color": [
+        0.67,
+        0.69,
+        0.77,
+        1
+       ]
+      },
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        3.0,
+        0.0,
+        1.7
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        2.0,
+        2.5,
+        1.8
+       ],
+       "color": [
+        0.1,
+        0.3,
+        0.8,
+        1
+       ]
+      },
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        2.5,
+        0.0,
+        0.4
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.8,
+        2.6,
+        0.8
+       ],
+       "color": [
+        0.02,
+        0.02,
+        0.02,
+        1
+       ]
+      },
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        -2.5,
+        0.0,
+        0.4
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.8,
+        2.6,
+        0.8
+       ],
+       "color": [
+        0.02,
+        0.02,
+        0.02,
+        1
+       ]
+      }
+     ],
+     "sensors": []
+    },
+    {
+     "name": "door",
+     "parent": "chassis",
+     "part": null,
+     "pos": [
+      -4.0,
+      0.0,
+      0.8
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "inertial": {
+      "mass": 50.0,
+      "com": [
+       0.0,
+       0.0,
+       0.5
+      ],
+      "inertia": [
+       28.1666666667,
+       4.17708333333,
+       24.0104166667,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "joint": {
+      "name": "door",
+      "type": "prismatic",
+      "axis": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "range": [
+       0.0,
+       1.5
+      ],
+      "initial": 0.0,
+      "effort": null,
+      "velocity": null,
+      "damping": 0.0,
+      "armature": 0.0,
+      "friction": 0.0
+     },
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.0,
+        0.0,
+        0.5
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.05,
+        2.4,
+        1.0
+       ],
+       "color": [
+        0.95,
+        0.95,
+        0.95,
+        1
+       ]
+      }
+     ],
+     "sensors": []
+    }
+   ],
+   "mass": 8050.0
+  },
+  "carrier": {
+   "root": "base",
+   "links": [
+    {
+     "name": "base",
+     "parent": null,
+     "part": null,
+     "pos": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "inertial": {
+      "mass": 150.0,
+      "com": [
+       0.0,
+       0.0,
+       0.2
+      ],
+      "inertia": [
+       7.25,
+       13.625,
+       18.625,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "joint": {
+      "name": "base_joint",
+      "type": "free"
+     },
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.0,
+        0.0,
+        0.2
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        1.0,
+        0.7,
+        0.3
+       ],
+       "color": [
+        1.0,
+        0.45,
+        0.0,
+        1
+       ]
+      },
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        -0.4,
+        0.0,
+        1.1
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.1,
+        0.1,
+        1.5
+       ],
+       "color": [
+        0.67,
+        0.69,
+        0.77,
+        1
+       ]
+      }
+     ],
+     "sensors": []
+    },
+    {
+     "name": "boom",
+     "parent": "base",
+     "part": null,
+     "pos": [
+      -0.4,
+      0.0,
+      1.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "inertial": {
+      "mass": 20.0,
+      "com": [
+       0.8,
+       0.0,
+       0.0
+      ],
+      "inertia": [
+       0.0273333333333,
+       4.27733333333,
+       4.28333333333,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "joint": {
+      "name": "lift",
+      "type": "prismatic",
+      "axis": [
+       0.0,
+       0.0,
+       1.0
+      ],
+      "range": [
+       0.0,
+       0.8
+      ],
+      "initial": 0.18,
+      "effort": null,
+      "velocity": null,
+      "damping": 0.0,
+      "armature": 0.0,
+      "friction": 0.0
+     },
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.8,
+        0.0,
+        0.0
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        1.6,
+        0.1,
+        0.08
+       ],
+       "color": [
+        0.67,
+        0.69,
+        0.77,
+        1
+       ]
+      }
+     ],
+     "sensors": []
+    },
+    {
+     "name": "gripper",
+     "parent": "boom",
+     "part": null,
+     "pos": [
+      1.5,
+      0.0,
+      -0.06
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "inertial": {
+      "mass": 5.0,
+      "com": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "inertia": [
+       0.0381666666667,
+       0.0381666666667,
+       0.075,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "joint": {
+      "name": "gripper_joint",
+      "type": "fixed"
+     },
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.0,
+        0.0,
+        0.0
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.3,
+        0.3,
+        0.04
+       ],
+       "color": [
+        0.02,
+        0.02,
+        0.02,
+        1
+       ]
+      }
+     ],
+     "sensors": []
+    }
+   ],
+   "mass": 175.0
+  }
+ },
+ "sites": {
+  "yard": {
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "floor": [
+    30.0,
+    20.0
+   ],
+   "zones": {
+    "dock": {
+     "pos": [
+      -8.0,
+      -5.0,
+      0.0
+     ],
+     "size": [
+      6.0,
+      4.0
+     ],
+     "color": [
+      0.1,
+      0.6,
+      0.2,
+      1
+     ]
+    },
+    "storage": {
+     "pos": [
+      6.0,
+      4.0,
+      0.0
+     ],
+     "size": [
+      4.0,
+      3.0
+     ],
+     "color": [
+      0.1,
+      0.3,
+      0.8,
+      1
+     ]
+    }
+   },
+   "fixtures": {
+    "shelf": {
+     "pos": [
+      6.0,
+      4.1,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.0,
+        0.0,
+        0.8
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        2.0,
+        0.8,
+        0.05
+       ],
+       "color": [
+        0.67,
+        0.69,
+        0.77,
+        1
+       ]
+      },
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        -0.975,
+        0.0,
+        0.4125
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.05,
+        0.8,
+        0.825
+       ],
+       "color": [
+        0.67,
+        0.69,
+        0.77,
+        1
+       ]
+      },
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.975,
+        0.0,
+        0.4125
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        0.05,
+        0.8,
+        0.825
+       ],
+       "color": [
+        0.67,
+        0.69,
+        0.77,
+        1
+       ]
+      }
+     ],
+     "attrs": {
+      "kind": "shelf"
+     }
+    },
+    "wall": {
+     "pos": [
+      0.0,
+      10.0,
+      0.0
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "geoms": [
+      {
+       "role": "collision",
+       "shape": "box",
+       "pos": [
+        0.0,
+        0.0,
+        1.5
+       ],
+       "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+       ],
+       "size": [
+        30.0,
+        0.2,
+        3.0
+       ],
+       "color": [
+        0.85,
+        0.85,
+        0.82,
+        1
+       ]
+      }
+     ],
+     "attrs": {
+      "kind": "wall"
+     }
+    }
+   }
+  }
+ },
+ "items": {
+  "truck-01": {
+   "kind": "assembly",
+   "of": "truck",
+   "location": "site.yard",
+   "pos": [
+    -30.0,
+    -5.0,
+    0.0
+   ],
+   "quat": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "native": {
+    "isaac": {
+     "usd": "assets/isaac/truck.usda",
+     "prim": "/Truck",
+     "replace": "visual"
+    }
+   }
+  },
+  "carrier-01": {
+   "kind": "assembly",
+   "of": "carrier",
+   "location": "site.yard",
+   "pos": [
+    -12.0,
+    3.0,
+    0.0
+   ],
+   "quat": [
+    0.707106781187,
+    0.0,
+    0.0,
+    -0.707106781187
+   ]
+  },
+  "crate-01": {
+   "kind": "part",
+   "of": "crate",
+   "location": "site.yard",
+   "pos": [
+    -33.6,
+    -5.0,
+    0.95
+   ],
+   "quat": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "tag-01": {
+   "kind": "part",
+   "of": "tag",
+   "location": "site.yard",
+   "pos": [
+    6.8,
+    4.3,
+    0.835
+   ],
+   "quat": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "horse-01": {
+   "only": [
+    "minecraft"
+   ],
+   "kind": "part",
+   "of": "horse",
+   "location": "site.yard",
+   "pos": [
+    10.0,
+    -6.0,
+    0.0
+   ],
+   "quat": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "native": {
+    "minecraft": {
+     "entity": "minecraft:horse",
+     "nbt": "{Tame:1b}"
+    }
+   }
+  }
+ },
+ "lifecycles": {},
+ "processes": {},
+ "seams": {},
+ "other": {},
+ "timelines": {
+  "demo": {
+   "label": "Motion demo: a truck delivers a crate, a carrier shelves it",
+   "duration": 60.0,
+   "loop": true,
+   "physics": true,
+   "tracks": {
+    "truck-01": [
+     {
+      "t": 0.0,
+      "pos": [
+       -30.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 10.0,
+      "pos": [
+       -6.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "smooth"
+     },
+     {
+      "t": 40.0,
+      "pos": [
+       -6.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 52.0,
+      "pos": [
+       -30.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     }
+    ],
+    "carrier-01": [
+     {
+      "t": 0.0,
+      "pos": [
+       -12.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       -0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 10.0,
+      "pos": [
+       -12.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       -0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 18.0,
+      "pos": [
+       -12.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       -0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 19.0,
+      "pos": [
+       -12.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 20.3,
+      "pos": [
+       -10.7,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 23.0,
+      "pos": [
+       -10.7,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 24.3,
+      "pos": [
+       -12.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 25.0,
+      "pos": [
+       -12.0,
+       -5.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 33.0,
+      "pos": [
+       -12.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 34.0,
+      "pos": [
+       -12.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 43.0,
+      "pos": [
+       6.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       1.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 44.0,
+      "pos": [
+       6.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 47.0,
+      "pos": [
+       6.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 48.0,
+      "pos": [
+       6.0,
+       2.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       0.707106781187
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 49.0,
+      "pos": [
+       6.0,
+       2.0,
+       0.0
+      ],
+      "quat": [
+       6.12323399574e-17,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 58.0,
+      "pos": [
+       -12.0,
+       2.0,
+       0.0
+      ],
+      "quat": [
+       6.12323399574e-17,
+       0.0,
+       0.0,
+       1.0
+      ],
+      "ease": "linear"
+     },
+     {
+      "t": 60.0,
+      "pos": [
+       -12.0,
+       3.0,
+       0.0
+      ],
+      "quat": [
+       0.707106781187,
+       0.0,
+       0.0,
+       -0.707106781187
+      ],
+      "ease": "linear"
+     }
+    ]
+   },
+   "joints": {
+    "truck-01": [
+     {
+      "t": 0.0,
+      "values": {
+       "door": 0.0
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 10.0,
+      "values": {
+       "door": 0.0
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 12.0,
+      "values": {
+       "door": 1.2
+      },
+      "ease": "smooth"
+     },
+     {
+      "t": 38.0,
+      "values": {
+       "door": 1.2
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 40.0,
+      "values": {
+       "door": 0.0
+      },
+      "ease": "smooth"
+     }
+    ],
+    "carrier-01": [
+     {
+      "t": 0.0,
+      "values": {
+       "lift": 0.18
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 22.0,
+      "values": {
+       "lift": 0.18
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 23.0,
+      "values": {
+       "lift": 0.45
+      },
+      "ease": "smooth"
+     },
+     {
+      "t": 43.0,
+      "values": {
+       "lift": 0.45
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 45.0,
+      "values": {
+       "lift": 0.255
+      },
+      "ease": "smooth"
+     },
+     {
+      "t": 46.0,
+      "values": {
+       "lift": 0.255
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 47.0,
+      "values": {
+       "lift": 0.45
+      },
+      "ease": "smooth"
+     },
+     {
+      "t": 58.0,
+      "values": {
+       "lift": 0.45
+      },
+      "ease": "linear"
+     },
+     {
+      "t": 60.0,
+      "values": {
+       "lift": 0.18
+      },
+      "ease": "smooth"
+     }
+    ]
+   },
+   "attach": [
+    {
+     "item": "crate-01",
+     "to": "truck-01",
+     "link": "chassis",
+     "t0": 0.0,
+     "t1": 22.0,
+     "pos": [
+      -3.6,
+      0.0,
+      0.95
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "item": "crate-01",
+     "to": "carrier-01",
+     "link": "gripper",
+     "t0": 22.0,
+     "t1": 46.0,
+     "pos": [
+      0.0,
+      0.0,
+      -0.17
+     ],
+     "quat": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "visible": {
+    "tag-01": [
+     [
+      0.0,
+      false
+     ],
+     [
+      46.0,
+      true
+     ]
+    ]
+   },
+   "channels": {
+    "beacon": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      22.0,
+      1.0
+     ],
+     [
+      46.0,
+      0.0
+     ]
+    ]
+   },
+   "phases": [
+    {
+     "name": "arrive",
+     "label": "Truck arrives",
+     "t0": 0.0,
+     "t1": 12.0,
+     "station": null
+    },
+    {
+     "name": "unload",
+     "label": "Unload the crate",
+     "t0": 12.0,
+     "t1": 24.0,
+     "station": "site.yard.zone.dock"
+    },
+    {
+     "name": "carry",
+     "label": "Carry it to storage",
+     "t0": 24.0,
+     "t1": 43.0,
+     "station": null
+    },
+    {
+     "name": "shelve",
+     "label": "Shelve the crate",
+     "t0": 43.0,
+     "t1": 48.0,
+     "station": "site.yard.zone.storage"
+    },
+    {
+     "name": "return",
+     "label": "Carrier returns home",
+     "t0": 48.0,
+     "t1": 60.0,
+     "station": null
+    }
+   ],
+   "events": [
+    {
+     "name": "truck-docked",
+     "t": 10.0,
+     "text": "Truck docked at the dock"
+    },
+    {
+     "name": "crate-picked",
+     "t": 22.0,
+     "text": "Crate picked from the truck"
+    },
+    {
+     "name": "crate-shelved",
+     "t": 46.0,
+     "text": "Crate released 5 cm above the shelf"
+    },
+    {
+     "name": "truck-gone",
+     "t": 52.0,
+     "text": "Truck left the yard"
+    }
+   ],
+   "bodies": {
+    "truck-01": "kinematic",
+    "carrier-01": "kinematic",
+    "crate-01": "dynamic",
+    "tag-01": "static"
+   }
+  }
+ },
+ "cameras": {
+  "overview": {
+   "pos": [
+    0.0,
+    -22.0,
+    14.0
+   ],
+   "look_at": [
+    -3.0,
+    0.0,
+    0.0
+   ],
+   "fov": 1.0471975512
+  }
+ },
+ "shots": [
+  {
+   "name": "overview",
+   "timeline": "demo",
+   "t0": 0.0,
+   "t1": 60.0,
+   "camera": "overview",
+   "pos": null,
+   "look_at": null,
+   "follow": null,
+   "offset": null,
+   "relative": false,
+   "fov": 1.0471975512,
+   "label": "The whole yard"
+  },
+  {
+   "name": "chase",
+   "timeline": "demo",
+   "t0": 18.0,
+   "t1": 48.0,
+   "camera": null,
+   "pos": null,
+   "look_at": null,
+   "follow": "carrier-01",
+   "offset": [
+    -4.0,
+    0.0,
+    2.5
+   ],
+   "relative": true,
+   "fov": 0.872664625997,
+   "label": "Follow the carrier"
+  }
+ ],
+ "includes": [],
+ "sources": {},
+ "warnings": []
+}

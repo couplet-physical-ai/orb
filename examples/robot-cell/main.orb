@@ -1,0 +1,26 @@
+# A synthetic, static robot work cell composed from simple, non-vendor geometry.
+part "base" {
+  mass = 45 kg
+  visual "box" { size = [0.7, 0.7, 0.25] m  at = [0, 0, 0.125] m  color = "gray" }
+  collision "box" { size = [0.7, 0.7, 0.25] m  at = [0, 0, 0.125] m }
+}
+part "workpiece" {
+  mass = 2 kg
+  visual "box" { size = [0.25, 0.18, 0.12] m  color = "blue" }
+  collision "box" { size = [0.25, 0.18, 0.12] m }
+}
+
+site "cell" {
+  floor = [5, 4] m
+  color = "concrete"
+  zone "work-envelope" { at = [0, 0, 0] m  size = [2, 2] m  color = "orange" }
+  fixture "bench" {
+    kind = "work-surface"
+    at = [0.8, 0, 0] m
+    visual "box" { size = [1.2, 0.8, 0.08] m  at = [0, 0, 0.75] m  color = "wood" }
+    collision "box" { size = [1.2, 0.8, 0.08] m  at = [0, 0, 0.75] m }
+  }
+}
+
+item "robot-base-01" { of = part.base  location = site.cell  at = [-0.4, 0, 0] m }
+item "workpiece-01" { of = part.workpiece  location = site.cell  at = [0.8, 0, 0.83] m }
